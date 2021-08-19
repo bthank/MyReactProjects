@@ -15,12 +15,26 @@ class App extends Component {
     console.log('Component did mount');
   }
 
+  // only update property on UI conditionally when state variable count is a multiple of 3
+  shouldComponentUpdate(props,newState){
+    console.log('In shouldComponentUpdate  newState.count=',newState.count);
+    if(newState.count%3 == 0){
+      console.log(' *** In shouldComponentUpdate: YES');
+      return true;
+    } else {
+      console.log(' *** In shouldComponentUpdate: NO');
+      return false;
+    }
+    
+  }
+
   componentDidUpdate(){
     console.log('Component did update');
   }
 
   handleClick() {
     this.setState({count: this.state.count + 1});
+    console.log("In handleClick method incrementing count by 1");
   }
 
   render() {
