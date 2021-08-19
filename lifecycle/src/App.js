@@ -11,6 +11,14 @@ class App extends Component {
     this.state = {count: 0};
   }
 
+  componentDidMount(){
+    console.log('Component did mount');
+  }
+
+  componentDidUpdate(){
+    console.log('Component did update');
+  }
+
   handleClick() {
     this.setState({count: this.state.count + 1});
   }
