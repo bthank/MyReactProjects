@@ -12,6 +12,19 @@ class App extends Component {
     axios.get('https://restcountries.eu/rest/v2/all')
       .then(response => {
         console.log(response.data);
+      }).catch(error => {
+        console.error('Error',error)
+      })
+  }
+
+  handlePostClick(event) {
+    const axios = require('axios');
+
+    axios.post('http://test-routes.herokuapp.com/test/uppercase',{message: "react is great"})
+      .then(response => {
+        console.log(response.data);
+      }).catch(error => {
+        console.error('Error',error)
       })
   }
 
@@ -19,6 +32,7 @@ class App extends Component {
     return (
       <div className="App">
         <button onClick={this.handleClick.bind(this)}>Get Countries</button>
+        <button onClick={this.handlePostClick.bind(this)}>Convert to Uppercase</button>
       </div>
     );
   }
